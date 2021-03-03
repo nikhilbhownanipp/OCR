@@ -57,7 +57,7 @@ open class SwiftOCRTraining {
         let randomCode: () -> String = {
             let randomCharacter: () -> String = {
                 
-                let charArray = Array(recognizableCharacters.characters)
+                let charArray = Array(recognizableCharacters)
                 let randomDouble = Double(arc4random())/(Double(UINT32_MAX) + 1)
                 let randomIndex  = Int(floor(randomDouble * Double(charArray.count)))
                 return String(charArray[randomIndex])
@@ -72,9 +72,6 @@ open class SwiftOCRTraining {
             return code
         }
         
-        let randomFloat: (CGFloat) -> CGFloat = { modi in
-            return  (0 - modi) + CGFloat(arc4random()) / CGFloat(UINT32_MAX) * (modi * 2)
-        }
         
         //Font
         
@@ -85,17 +82,17 @@ open class SwiftOCRTraining {
         }
         
         let randomFont: () -> OCRFont = {
-            return OCRFont(name: randomFontName(), size: 45 + randomFloat(5))!
+            return OCRFont(name: randomFontName(), size: 45 + self.randomFloat(5))!
         }
     
-        let randomFontAttributes: () -> [NSAttributedStringKey: Any] = {
+        let randomFontAttributes: () -> [NSAttributedString.Key: Any] = {
             
             let paragraphStyle       = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
             paragraphStyle.alignment = NSTextAlignment.center
             
             return [.font: randomFont(),
                     .kern: CGFloat(8) as NSObject,
-                    .foregroundColor: OCRColor(red: 27/255 + randomFloat(0.2), green: 16/255 + randomFloat(0.2), blue: 16/255 + randomFloat(0.2), alpha: 80/100 + randomFloat(0.2)),
+                    .foregroundColor: OCRColor(red: 27/255 + self.randomFloat(0.2), green: 16/255 + self.randomFloat(0.2), blue: 16/255 + self.randomFloat(0.2), alpha: 80/100 + self.randomFloat(0.2)),
                     .paragraphStyle: paragraphStyle]
         }
         
@@ -122,7 +119,7 @@ open class SwiftOCRTraining {
                 UIGraphicsBeginImageContext(randomImg.size)
                 randomImg.draw(in: CGRect(origin: CGPoint.zero, size: randomImg.size))
                 
-                NSString(string: code).draw(in: CGRect(origin: CGPoint(x: 0 + randomFloat(5), y: -15.5 + randomFloat(5)), size: randomImg.size), withAttributes: randomFontAttributes())
+                NSString(string: code).draw(in: CGRect(origin: CGPoint(x: 0 + self.randomFloat(5), y: -15.5 + self.randomFloat(5)), size: randomImg.size), withAttributes: randomFontAttributes())
                 
                 let customImage = UIGraphicsGetImageFromCurrentImageContext()
                 UIGraphicsEndImageContext()
@@ -190,8 +187,8 @@ open class SwiftOCRTraining {
                     
                     let imageData = ocrInstance.convertImageToFloatArray(blob.0)
                     
-                    var imageAnswer = [Float](repeating: 0, count: recognizableCharacters.characters.count)
-                    if let index = Array(recognizableCharacters.characters).index(of: Array(code.characters)[blobIndex]) {
+                    var imageAnswer = [Float](repeating: 0, count: recognizableCharacters.count)
+                    if let index = Array(recognizableCharacters).index(of: Array(code)[blobIndex]) {
                         imageAnswer[index] = 1
                     }
                     
@@ -214,13 +211,14 @@ open class SwiftOCRTraining {
      - Returns:        An array containing the input and answers for the neural network.
      */
     
+    private func randomFloat(_ modi: CGFloat) -> CGFloat {
+        return  (0 - modi) + CGFloat(arc4random()) / CGFloat(UINT32_MAX) * (modi * 2)
+    }
+    
     fileprivate func generateCharSetFromImages(_ images: [(image: OCRImage, characters: [Character])], withNumberOfDistortions distortions: Int) -> [([Float],[Float])] {
         
         var trainingSet = [([Float],[Float])]()
         
-        let randomFloat: (CGFloat) -> CGFloat = { modi in
-            return  (0 - modi) + CGFloat(arc4random()) / CGFloat(UINT32_MAX) * (modi * 2)
-        }
         
         for (image, characters) in images {
             
@@ -275,8 +273,8 @@ open class SwiftOCRTraining {
                     for (blobIndex, blob) in blobs.enumerated() {
                         let imageData = ocrInstance.convertImageToFloatArray(blob.0)
                         
-                        var imageAnswer = [Float](repeating: 0, count: recognizableCharacters.characters.count)
-                        if let index = Array(recognizableCharacters.characters).index(of: characters[blobIndex]) {
+                        var imageAnswer = [Float](repeating: 0, count: recognizableCharacters.count)
+                        if let index = Array(recognizableCharacters).index(of: characters[blobIndex]) {
                             imageAnswer[index] = 1
                         }
                         
@@ -308,7 +306,7 @@ open class SwiftOCRTraining {
      */
     
     open   func testOCR(_ completionHandler: (Double) -> Void) {
-        let testData  = generateRealisticCharSet(recognizableCharacters.characters.count)
+        let testData  = generateRealisticCharSet(recognizableCharacters.count)
         
         var correctCount = 0
         var totalCount   = 0
@@ -318,8 +316,8 @@ open class SwiftOCRTraining {
             do {
                 let networkResult = try globalNetwork.update(inputs: i.0)
                 
-                let input      = Array(recognizableCharacters.characters)[i.1.index(of: 1)!]
-                let recognized = Array(recognizableCharacters.characters)[networkResult.index(of: networkResult.max() ?? 0) ?? 0]
+                let input      = Array(recognizableCharacters)[i.1.index(of: 1)!]
+                let recognized = Array(recognizableCharacters)[networkResult.index(of: networkResult.max() ?? 0) ?? 0]
                 
                 print(input, recognized)
                 
