@@ -1,16 +1,16 @@
 PODS:
-  - TesseractOCRiOS (5.0.1)
+  - SnapKit (5.0.1)
 
 DEPENDENCIES:
-  - TesseractOCRiOS
+  - SnapKit
 
 SPEC REPOS:
   trunk:
-    - TesseractOCRiOS
+    - SnapKit
 
 SPEC CHECKSUMS:
-  TesseractOCRiOS: 2c189465f86abb030d0c5141c90da9705b647854
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: 5ee5ec955029df6f30f3f8ebc15849cde2074392
+PODFILE CHECKSUM: bf8aa04d243e42229fabae20f09d9674a9fb5b17
 
 COCOAPODS: 1.10.0

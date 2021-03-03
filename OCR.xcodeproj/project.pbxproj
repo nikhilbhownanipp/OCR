@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		231AC866C8C66E3D360D4B2E /* Pods_OCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A354F7D7EB10D0814A8E6B39 /* Pods_OCR.framework */; };
 		242D922906D8D1CBB1C7A575 /* Pods_OCRTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9311A6ADA6B4D45D987AF157 /* Pods_OCRTests.framework */; };
+		44D3B59025EFA33700511D58 /* QRCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D3B58F25EFA33700511D58 /* QRCodeGenerator.swift */; };
+		44D3B5A725EFAB0400511D58 /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44D3B5A625EFAB0400511D58 /* CardView.xib */; };
+		44D3B5AC25EFAE3C00511D58 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D3B5AB25EFAE3C00511D58 /* CardView.swift */; };
 		57E781C82E5D12F18115BE17 /* Pods_OCR_OCRUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97FDD78FEC384BBF00C0BB64 /* Pods_OCR_OCRUITests.framework */; };
 		FE30A66525EF9113004A95D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30A66425EF9113004A95D9 /* AppDelegate.swift */; };
 		FE30A66725EF9114004A95D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30A66625EF9114004A95D9 /* SceneDelegate.swift */; };
@@ -40,6 +43,9 @@
 /* Begin PBXFileReference section */
 		14CDC463F9A9BC0516058ACB /* Pods-OCR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCR.release.xcconfig"; path = "Target Support Files/Pods-OCR/Pods-OCR.release.xcconfig"; sourceTree = "<group>"; };
 		3C4E18F25CAEBB26E83065D7 /* Pods-OCR-OCRUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCR-OCRUITests.debug.xcconfig"; path = "Target Support Files/Pods-OCR-OCRUITests/Pods-OCR-OCRUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		44D3B58F25EFA33700511D58 /* QRCodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeGenerator.swift; sourceTree = "<group>"; };
+		44D3B5A625EFAB0400511D58 /* CardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
+		44D3B5AB25EFAE3C00511D58 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		76E769B4E9512F369251BA36 /* Pods-OCR-OCRUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCR-OCRUITests.release.xcconfig"; path = "Target Support Files/Pods-OCR-OCRUITests/Pods-OCR-OCRUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9311A6ADA6B4D45D987AF157 /* Pods_OCRTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OCRTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93B93F92A01947DB8860D4FB /* Pods-OCRTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCRTests.debug.xcconfig"; path = "Target Support Files/Pods-OCRTests/Pods-OCRTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -111,7 +117,6 @@
 				93B93F92A01947DB8860D4FB /* Pods-OCRTests.debug.xcconfig */,
 				AF1C620467311F4D454DABFE /* Pods-OCRTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -143,6 +148,9 @@
 				FE30A66425EF9113004A95D9 /* AppDelegate.swift */,
 				FE30A66625EF9114004A95D9 /* SceneDelegate.swift */,
 				FE30A66825EF9114004A95D9 /* ViewController.swift */,
+				44D3B5A625EFAB0400511D58 /* CardView.xib */,
+				44D3B5AB25EFAE3C00511D58 /* CardView.swift */,
+				44D3B58F25EFA33700511D58 /* QRCodeGenerator.swift */,
 				FE30A66A25EF9114004A95D9 /* Main.storyboard */,
 				FE30A66D25EF9116004A95D9 /* Assets.xcassets */,
 				FE30A66F25EF9116004A95D9 /* LaunchScreen.storyboard */,
@@ -180,7 +188,7 @@
 				FE30A65D25EF9113004A95D9 /* Sources */,
 				FE30A65E25EF9113004A95D9 /* Frameworks */,
 				FE30A65F25EF9113004A95D9 /* Resources */,
-				BF58F5AA4AF9ABB394C366DA /* [CP] Embed Pods Frameworks */,
+				57511F3D518754BC836EF75B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -218,7 +226,7 @@
 				FE30A67E25EF9116004A95D9 /* Sources */,
 				FE30A67F25EF9116004A95D9 /* Frameworks */,
 				FE30A68025EF9116004A95D9 /* Resources */,
-				4601A16F4A751952B083C106 /* [CP] Embed Pods Frameworks */,
+				58527A7FA23CFA6942B2F27D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -279,6 +287,7 @@
 			files = (
 				FE30A67125EF9116004A95D9 /* LaunchScreen.storyboard in Resources */,
 				FE30A66E25EF9116004A95D9 /* Assets.xcassets in Resources */,
+				44D3B5A725EFAB0400511D58 /* CardView.xib in Resources */,
 				FE30A66C25EF9114004A95D9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,24 +331,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4601A16F4A751952B083C106 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OCR-OCRUITests/Pods-OCR-OCRUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OCR-OCRUITests/Pods-OCR-OCRUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OCR-OCRUITests/Pods-OCR-OCRUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BF58F5AA4AF9ABB394C366DA /* [CP] Embed Pods Frameworks */ = {
+		57511F3D518754BC836EF75B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -354,6 +346,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OCR/Pods-OCR-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		58527A7FA23CFA6942B2F27D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OCR-OCRUITests/Pods-OCR-OCRUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OCR-OCRUITests/Pods-OCR-OCRUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OCR-OCRUITests/Pods-OCR-OCRUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C26983181DA09CD02CA9444D /* [CP] Check Pods Manifest.lock */ = {
@@ -408,8 +417,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE30A66925EF9114004A95D9 /* ViewController.swift in Sources */,
+				44D3B59025EFA33700511D58 /* QRCodeGenerator.swift in Sources */,
 				FE30A66525EF9113004A95D9 /* AppDelegate.swift in Sources */,
 				FE30A66725EF9114004A95D9 /* SceneDelegate.swift in Sources */,
+				44D3B5AC25EFAE3C00511D58 /* CardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
