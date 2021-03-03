@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SwiftOCR
 import AVFoundation
 import Vision
 
@@ -32,7 +31,7 @@ class ViewController: UIViewController {
     fileprivate var stillImageOutput: AVCaptureStillImageOutput!
     fileprivate let captureSession = AVCaptureSession()
     fileprivate let device  = AVCaptureDevice.default(for: AVMediaType.video)
-    private let ocrInstance = SwiftOCR()
+    
     
     
     // MARK: - View LifeCycle
@@ -76,10 +75,12 @@ class ViewController: UIViewController {
                 let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(buffer)
                 if let image = UIImage(data: imageData!) {
                     OCRTextProcessor.getSavingsBankId(image: image) { strings in
+                        print("savings bank account possibles")
                         print(strings)
                     }
                     
                     OCRTextProcessor.getIFSC(image: image) { ifsc in
+                        print("ifsc possibles")
                         print(ifsc)
                     }
                 }
@@ -172,6 +173,7 @@ class OCRTextProcessor {
                     let components = item.components(separatedBy: "IFSC:")
                     if components.count > 1 {
                         completionBlock(components[1])
+                        print(components)
                         return
                     }
                     ifscPosition = index
@@ -204,7 +206,7 @@ class OCRManager {
                     continue
                 }
                 stringsArray.append(bestCandidate.string)
-                print("Found this candidate: \(bestCandidate.string)")
+//                print("Found this candidate: \(bestCandidate.string)")
             }
             completion(stringsArray)
         }
