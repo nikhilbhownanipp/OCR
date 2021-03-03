@@ -1,16 +1,20 @@
 PODS:
-  - TesseractOCRiOS (5.0.1)
+  - GPUImage (0.1.7)
+  - SwiftOCR (1.1):
+    - GPUImage
 
 DEPENDENCIES:
-  - TesseractOCRiOS
+  - SwiftOCR
 
 SPEC REPOS:
   trunk:
-    - TesseractOCRiOS
+    - GPUImage
+    - SwiftOCR
 
 SPEC CHECKSUMS:
-  TesseractOCRiOS: 2c189465f86abb030d0c5141c90da9705b647854
+  GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
+  SwiftOCR: e1a5c7582f074b54df2b1ad273983088b3cf5d45
 
-PODFILE CHECKSUM: 5ee5ec955029df6f30f3f8ebc15849cde2074392
+PODFILE CHECKSUM: 8578bc92535c7e56550cb48b534811d07caee556
 
 COCOAPODS: 1.10.0

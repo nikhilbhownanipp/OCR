@@ -1,2 +1,3 @@
 ${PODS_ROOT}/Target Support Files/Pods-OCR/Pods-OCR-frameworks.sh
-${BUILT_PRODUCTS_DIR}/TesseractOCRiOS/TesseractOCR.framework
+${BUILT_PRODUCTS_DIR}/GPUImage/GPUImage.framework
+${BUILT_PRODUCTS_DIR}/SwiftOCR/SwiftOCR.framework
