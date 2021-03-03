@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     var label: UILabel = UILabel()
     
     // MARK: - Private Properties
-    fileprivate var stillImageOutput: AVCaptureStillImageOutput!
+    fileprivate var stillImageOutput: AVCaptureStillImageOutput! = AVCaptureStillImageOutput()
     fileprivate let captureSession = AVCaptureSession()
     fileprivate let device  = AVCaptureDevice.default(for: AVMediaType.video)
     
