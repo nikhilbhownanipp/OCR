@@ -1,0 +1,6 @@
+framework module Pods_OCR {
+  umbrella header "Pods-OCR-umbrella.h"
+
+  export *
+  module * { export * }
+}
